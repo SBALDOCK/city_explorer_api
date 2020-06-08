@@ -19,11 +19,6 @@ app.use(cors());
 // bring in the PORT by using process.env variable name
 const PORT = process.env.PORT || 3003;
 
-// turn on server and console log port
-app.listen(PORT, () => {
-  console.log(`listening on ${PORT}`);
-});
-
 app.get('/location', (request, response) => {
   try{
     console.log(request.query.city);
@@ -40,8 +35,7 @@ app.get('/location', (request, response) => {
     console.log('Error', err);
     response.status(500).send('sorry, we messed up');
   }
-
-})
+});
 
 function Location(searchQuery, obj) {
   this.search_query = searchQuery;
@@ -50,10 +44,39 @@ function Location(searchQuery, obj) {
   this.longitude = obj.lon;
 }
 
+
+// app.get('/weather', (request, response) => {
+//   try{
+//     console.log(request.query.city);
+//     let search_query = request.query.city;
+
+//     let geoData = require('./data/weather.json');
+
+//     let returnObj = new Weather(search_query, geoData[0]);
+
+//     console.log(returnObj);
+
+//     response.status(200).send(returnObj);
+//   } catch(err) {
+//     console.log('Error', err);
+//     response.status(500).send('sorry, we messed up');
+//   }
+// });
+
+// function Weather (searchQuery, obj) {
+//   this.search_query = searchQuery;
+//   this.formatted_query = obj.display_name;
+//   this.latitude = obj.lat;
+//   this.longitude = obj.lon;
+// }
+
+
+
 app.get('*', (request, response) => {
   response.status(404).send('sorry, this route does not exist');
 })
 
+// turn on server and console log port
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 })
