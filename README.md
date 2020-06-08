@@ -23,9 +23,51 @@ City Explorer Server - Assignment 6
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->
 
-Number and name of feature: ________________________________
 
-Estimate of time needed to complete: _____
+#### Repository Setup
+
+Number and name of feature: #1. Repository Setup
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 12:35 PM
+
+Finish time: 1:35 PM
+
+Actual time needed to complete: 30 Minutes
+
+
+#### Locations
+
+Number and name of feature: #2. Locations
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+
+#### Weather
+
+Number and name of feature: #3. Weather
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+
+#### Errors
+
+Number and name of feature: #4. Errors
+
+Estimate of time needed to complete: 1 Hour
 
 Start time: _____
 
