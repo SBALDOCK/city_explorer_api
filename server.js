@@ -43,14 +43,14 @@ app.get('/location', (request, response) => {
 
 })
 
-function location(searchQuery, obj) {
+function Location(searchQuery, obj) {
   this.search_query = searchQuery;
   this.formatted_query = obj.display_name;
   this.latitude = obj.lat;
   this.longitude = obj.lon;
 }
 
-app.get('*', (request, reponse) => {
+app.get('*', (request, response) => {
   response.status(404).send('sorry, this route does not exist');
 })
 
