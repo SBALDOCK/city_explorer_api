@@ -45,32 +45,29 @@ function Location(searchQuery, obj) {
 }
 
 
-// app.get('/weather', (request, response) => {
-//   try{
-//     console.log(request.query.city);
-//     let search_query = request.query.city;
+app.get('/weather', (request, response) => {
+  try{
+    let weatherInfo = getWeather(request.query.data);
+    response.status(200).send(weatherInfo);
+  } catch(err) {
+    console.log('Error', err);
+    response.status(500).send('sorry, we messed up');
+  }
+});
 
-//     let geoData = require('./data/weather.json');
+function Weather (obj) {
+  this.forecast = obj.weather.description;
+  this.time = obj.weather.valid_date;
+}
 
-//     let returnObj = new Weather(search_query, geoData[0]);
-
-//     console.log(returnObj);
-
-//     response.status(200).send(returnObj);
-//   } catch(err) {
-//     console.log('Error', err);
-//     response.status(500).send('sorry, we messed up');
-//   }
-// });
-
-// function Weather (searchQuery, obj) {
-//   this.search_query = searchQuery;
-//   this.formatted_query = obj.display_name;
-//   this.latitude = obj.lat;
-//   this.longitude = obj.lon;
-// }
-
-
+function getWeather() {
+  const weatherData = require('./data/weather.json');
+  const climate = [];
+  weatherData.data.forEach((day) => {
+    climate.push(new Weather(day));
+  })
+  return climate;
+}
 
 app.get('*', (request, response) => {
   response.status(404).send('sorry, this route does not exist');
