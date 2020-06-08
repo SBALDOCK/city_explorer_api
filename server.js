@@ -13,11 +13,11 @@ require('dotenv').config();
 const cors = require('cors');
 app.use(cors());
 
-// // express, find public folder and serve files
-// app.use(express.static('./public'));
 
 // bring in the PORT by using process.env variable name
 const PORT = process.env.PORT || 3003;
+
+
 
 app.get('/location', (request, response) => {
   try{
@@ -31,6 +31,7 @@ app.get('/location', (request, response) => {
     console.log(returnObj);
 
     response.status(200).send(returnObj);
+
   } catch(err) {
     console.log('Error', err);
     response.status(500).send('sorry, we messed up');
