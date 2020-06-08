@@ -13,16 +13,15 @@ require('dotenv').config();
 const cors = require('cors');
 app.use(cors());
 
-// // express, find public folder and serve files
-// app.use(express.static('./public'));
 
 // bring in the PORT by using process.env variable name
 const PORT = process.env.PORT || 3003;
 
-// turn on server and console log port
-app.listen(PORT, () => {
-  console.log(`listening on ${PORT}`);
-});
+// app.get('/', (request, response) => {
+//   console.log('hello out there');
+//   response.status(200).send('Greetings Kind Gangsters');
+// });
+
 
 app.get('/location', (request, response) => {
   try{
@@ -36,6 +35,7 @@ app.get('/location', (request, response) => {
     console.log(returnObj);
 
     response.status(200).send(returnObj);
+
   } catch(err) {
     console.log('Error', err);
     response.status(500).send('sorry, we messed up');
@@ -43,17 +43,18 @@ app.get('/location', (request, response) => {
 
 })
 
-function location(searchQuery, obj) {
+function Location(searchQuery, obj) {
   this.search_query = searchQuery;
   this.formatted_query = obj.display_name;
   this.latitude = obj.lat;
   this.longitude = obj.lon;
 }
 
-app.get('*', (request, reponse) => {
+app.get('*', (request, response) => {
   response.status(404).send('sorry, this route does not exist');
 })
 
+// turn on server and console log port
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 })
