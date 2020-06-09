@@ -50,8 +50,7 @@ function Location(searchQuery, obj) {
 
 
 app.get('/weather', (request, response) => {
-  try {   
-    let search_query = request.query.search_query;
+  try {
     let weatherArray = [];
     const weatherData = require('./data/weather.json');
 
