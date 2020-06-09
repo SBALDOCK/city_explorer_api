@@ -51,6 +51,8 @@ City Explorer Server - Assignment 6
 * Colloration with Daisy Johnson and Kamit Satkeev on whiteboarding and some elements of file structure setup, troubleshooting, and code architecture
 
 
+## Lab 6
+
 #### Repository Setup
 
 Number and name of feature: #1. Repository Setup
@@ -91,6 +93,47 @@ Actual time needed to complete: 2 Hours
 
 
 #### Errors
+
+Number and name of feature: #4. Errors
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+
+## Lab 7
+
+#### First
+
+Number and name of feature: #4. Errors
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+
+#### Second
+
+Number and name of feature: #4. Errors
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+
+#### Third
 
 Number and name of feature: #4. Errors
 
