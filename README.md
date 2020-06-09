@@ -3,7 +3,7 @@ City Explorer Server - Assignment 6
 
 #### Team Whiteboard Work
 
-![whiteboard](whiteboard.jpeg)
+![whiteboard](images/whiteboard.jpeg)
 
 
 **Author**: Steve Baldock
@@ -105,11 +105,26 @@ Finish time: _____
 Actual time needed to complete: _____
 
 
-## Lab 7
+## Lab 7 - Tuesday, June 9
 
-#### First
+![whiteboard day 2](images/whiteboard2.jpeg)
 
-Number and name of feature: #4. Errors
+#### Data Formatting
+
+Number and name of feature: #1 - Data Formatting
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 1:39PM
+
+Finish time: 2:39 PM
+
+Actual time needed to complete: _____
+
+
+#### Locations
+
+Number and name of feature: #2 - Locations
 
 Estimate of time needed to complete: 1 Hour
 
@@ -120,9 +135,9 @@ Finish time: _____
 Actual time needed to complete: _____
 
 
-#### Second
+#### Weather
 
-Number and name of feature: #4. Errors
+Number and name of feature: #3 - Weather
 
 Estimate of time needed to complete: 1 Hour
 
@@ -133,9 +148,9 @@ Finish time: _____
 Actual time needed to complete: _____
 
 
-#### Third
+#### Trails
 
-Number and name of feature: #4. Errors
+Number and name of feature: #4 - Trails
 
 Estimate of time needed to complete: 1 Hour
 

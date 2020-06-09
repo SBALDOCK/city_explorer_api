@@ -3,6 +3,9 @@
 // bring express library
 const express = require('express');
 
+// Initiate Superagent library
+const superagent = require('superagent');
+
 // initialize express library
 const app = express();
 
@@ -21,8 +24,11 @@ const PORT = process.env.PORT || 3003;
 
 app.get('/location', (request, response) => {
   try{
-    console.log(request.query.city);
+    // console.log(request.query.city);
     const city = request.query.city;
+
+    //Replace local location file with URL and GeoData Key
+    // let locationURL = ``
 
     // Utilize data library from specified file
     const geoData = require('./data/location.json');
@@ -54,7 +60,7 @@ app.get('/weather', (request, response) => {
     let weatherArray = [];
     const weatherData = require('./data/weather.json');
 
-    weatherData.data.forEach(day => {
+    weatherData.data.map(day => {
       weatherArray.push(new Weather(day));
     })
 
