@@ -2,22 +2,16 @@
 
 // bring express library
 const express = require('express');
-
 // Initiate Superagent library
 const superagent = require('superagent');
-
 // initialize express library
 const app = express();
-
 // access .env file and gets variable for use - Secrets we don't want to share
 require('dotenv').config();
-
 // bodyguard of our server - tells who is okay to send data to
 const cors = require('cors');
-
 // Hey cors, let everybody in
 app.use(cors());
-
 // bring in the PORT by using process.env variable name
 const PORT = process.env.PORT || 3003;
 
@@ -25,22 +19,18 @@ const PORT = process.env.PORT || 3003;
 app.get('/location', (request, response) => {
   try{
     // console.log(request.query.city);
-    const city = request.query.city;
+    let city = request.query.city;
 
     //Replace local location file with URL and GeoData Key
-    // let locationURL = ``
+    let locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.GEO_DATA_API_KEY}&q=${city}&format=json`;
 
-    // Utilize data library from specified file
-    const geoData = require('./data/location.json');
-
-    // Create new object instance
-    // Send GeoData at [0] to get first object
-    const returnObj = new Location(city, geoData[0]);
-
-    // console.log(returnObj);
-
-    response.status(200).send(returnObj);
-
+    // Use Superagent get function
+    superagent.get(locationURL)
+      .then(resultsFromSuperAgent => {
+        let returnObj = new Location(city, resultsFromSuperAgent.body[0]);
+        response.status(200).send(returnObj);
+        console.log(returnObj);
+      })
   } catch(err) {
     console.log('Error', err);
     response.status(500).send('sorry, something went wrong');
