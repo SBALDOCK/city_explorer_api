@@ -109,6 +109,7 @@ Actual time needed to complete: _____
 
 ![whiteboard day 2](images/whiteboard2.jpeg)
 
+
 #### Data Formatting
 
 Number and name of feature: #1 - Data Formatting
@@ -119,7 +120,7 @@ Start time: 1:39PM
 
 Finish time: 2:39 PM
 
-Actual time needed to complete: _____
+Actual time needed to complete: 35 Minutes
 
 
 #### Locations
