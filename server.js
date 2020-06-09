@@ -34,7 +34,7 @@ app.get('/location', (request, response) => {
 
   } catch(err) {
     console.log('Error', err);
-    response.status(500).send('sorry, we messed up');
+    response.status(500).send('sorry, something went wrong');
   }
 });
 
@@ -52,7 +52,7 @@ app.get('/weather', (request, response) => {
     response.status(200).send(weatherInfo);
   } catch(err) {
     console.log('Error', err);
-    response.status(500).send('sorry, we messed up');
+    response.status(500).send('sorry, something went wrong');
   }
 });
 
@@ -63,11 +63,11 @@ function Weather (obj) {
 
 function getWeather() {
   const weatherData = require('./data/weather.json');
-  const climate = [];
+  const weatherInfo = [];
   weatherData.data.forEach((day) => {
-    climate.push(new Weather(day));
+    weatherInfo.push(new Weather(day));
   })
-  return climate;
+  return weatherInfo;
 }
 
 app.get('*', (request, response) => {
