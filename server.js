@@ -15,10 +15,9 @@ app.use(cors());
 // bring in the PORT by using process.env variable name
 const PORT = process.env.PORT || 3003;
 
-
+// Location .Get Function
 app.get('/location', (request, response) => {
   try{
-    // console.log(request.query.city);
     let city = request.query.city;
 
     //Replace local location file with URL and GeoData Key
@@ -37,6 +36,7 @@ app.get('/location', (request, response) => {
   }
 });
 
+// Location Constructor Function
 function Location(searchQuery, obj) {
   this.search_query = searchQuery;
   this.formatted_query = obj.display_name;
@@ -44,7 +44,7 @@ function Location(searchQuery, obj) {
   this.longitude = obj.lon;
 }
 
-
+// Weather .Get Function
 app.get('/weather', (request, response) => {
   try {
     let weatherArray = [];
