@@ -6,29 +6,32 @@ const express = require('express');
 // initialize express library
 const app = express();
 
-// access .env file and gets variable for use
+// access .env file and gets variable for use - Secrets we don't want to share
 require('dotenv').config();
 
 // bodyguard of our server - tells who is okay to send data to
 const cors = require('cors');
-app.use(cors());
 
+// Hey cors, let everybody in
+app.use(cors());
 
 // bring in the PORT by using process.env variable name
 const PORT = process.env.PORT || 3003;
 
 
-
 app.get('/location', (request, response) => {
   try{
     console.log(request.query.city);
-    let search_query = request.query.city;
+    const city = request.query.city;
 
-    let geoData = require('./data/location.json');
+    // Utilize data library from specified file
+    const geoData = require('./data/location.json');
 
-    let returnObj = new Location(search_query, geoData[0]);
+    // Create new object instance
+    // Send GeoData at [0] to get first object
+    const returnObj = new Location(city, geoData[0]);
 
-    console.log(returnObj);
+    // console.log(returnObj);
 
     response.status(200).send(returnObj);
 
@@ -47,9 +50,16 @@ function Location(searchQuery, obj) {
 
 
 app.get('/weather', (request, response) => {
-  try{
-    let weatherInfo = getWeather(request.query.data);
-    response.status(200).send(weatherInfo);
+  try {   
+    let search_query = request.query.search_query;
+    let weatherArray = [];
+    const weatherData = require('./data/weather.json');
+
+    weatherData.data.forEach(day => {
+      weatherArray.push(new Weather(day));
+    })
+
+    response.status(200).send(weatherArray);
   } catch(err) {
     console.log('Error', err);
     response.status(500).send('sorry, something went wrong');
@@ -59,15 +69,6 @@ app.get('/weather', (request, response) => {
 function Weather (obj) {
   this.forecast = obj.weather.description;
   this.time = obj.weather.valid_date;
-}
-
-function getWeather() {
-  const weatherData = require('./data/weather.json');
-  const weatherInfo = [];
-  weatherData.data.forEach((day) => {
-    weatherInfo.push(new Weather(day));
-  })
-  return weatherInfo;
 }
 
 app.get('*', (request, response) => {
