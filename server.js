@@ -23,7 +23,7 @@ app.get('/location', (request, response) => {
     //Replace local location file with URL and GeoData Key
     let locationURL = `https://us1.locationiq.com/v1/search.php?key=${process.env.GEO_DATA_API_KEY}&q=${city}&format=json`;
 
-    // Use Superagent get function
+    // Use Superagent get function - Go get information from URL, which we send (body) back as an array
     superagent.get(locationURL)
       .then(resultsFromSuperAgent => {
         let returnObj = new Location(city, resultsFromSuperAgent.body[0]);
@@ -63,9 +63,15 @@ app.get('/trails', (request, response) => {
   let {latitude, longitude} = request.query;
 
   //Replace local location file with URL and GeoData Key
-  let trailsURL = `https://www.hikingproject.com/data/get-trails?lat=${latitude}&lon=${longitude}&key=${process.env.HIKING_DATA_API_KEY}`;
+  let trailsURL = `https://www.hikingproject.com/data/get-trails`;
 
   superagent.get(trailsURL)
+    .query({
+      lat: latitude,
+      lon: longitude,
+      maxDistance: 200,
+      key: process.env.HIKING_DATA_API_KEY,
+    })
     .then(results => {
       const trailResult = results.body.trails.map(trail => {
         return new Trail(trail);
@@ -98,8 +104,6 @@ function Trail (obj) {
   this.condition_date = obj.conditionDate.slice(0,10);
   this.condition_date = obj.conditionDate.slice(12,19);
   // this.condition_time = obj.conditiontime;
-  // this.latitude = obj.lat;
-  // this.longitude = obj.lon;
 }
 
 app.get('*', (request, response) => {
