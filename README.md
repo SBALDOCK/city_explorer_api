@@ -129,11 +129,11 @@ Number and name of feature: #2 - Locations
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: _____
+Start time: 2:40 PM
 
-Finish time: _____
+Finish time: 3:40 PM
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 Hour
 
 
 #### Weather
@@ -142,11 +142,11 @@ Number and name of feature: #3 - Weather
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: _____
+Start time: 3:40 PM
 
-Finish time: _____
+Finish time:4:40 PM
 
-Actual time needed to complete: _____
+Actual time needed to complete: 5:10 PM
 
 
 #### Trails
