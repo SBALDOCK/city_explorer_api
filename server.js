@@ -36,27 +36,27 @@ app.get('/location', (request, response) => {
   }
 });
 
-// // Weather .Get Function
-// app.get('/weather', (request, response) => {
-//   try {
-//     // let weatherArray = [];
-//     let search_query = request.query.search_query;
-//     console.log('stuff I got from the front end on the weather route', search_query)
+// Weather .Get Function
+app.get('/weather', (request, response) => {
+  try {
+    // let weatherArray = [];
+    let search_query = request.query.search_query;
+    console.log('stuff I got from the front end on the weather route', search_query)
 
-//     let weatherURL = `https://api.weatherbit.io/v2.0/current?city=${search_query}&key=${process.env.WEATHER_DATA_API_KEY}`
+    let weatherURL = `https://api.weatherbit.io/v2.0/forecast/daily?city=${search_query}&key=${process.env.WEATHER_DATA_API_KEY}`
 
-//     superagent.get(weatherURL)
-//       .then(results => {
-//         let returnObj = results.body.data.map(day => {(new Weather(day))}
-//         console.log(results.body.data)
-// //         response.status(200).send(returnObj);
-//       });
+    superagent.get(weatherURL)
+      .then(results => {
+        let returnObj = results.body.data.map(day => new Weather(day))
+        console.log(results.body.data)
+        response.status(200).send(returnObj);
+      });
 
-//   } catch(err) {
-//     console.log('Error', err);
-//     response.status(500).send('sorry, something went wrong');
-//   }
-// });
+  } catch(err) {
+    console.log('Error', err);
+    response.status(500).send('sorry, something went wrong');
+  }
+});
 
 function Location(searchQuery, obj) {
   this.search_query = searchQuery;
@@ -65,10 +65,10 @@ function Location(searchQuery, obj) {
   this.longitude = obj.lon;
 }
 
-// function Weather (obj) {
-//   this.forecast = obj.weather.description;
-//   this.time = obj.weather.valid_date;
-// }
+function Weather (obj) {
+  this.forecast = obj.weather.description;
+  this.time = obj.valid_date;
+}
 
 app.get('*', (request, response) => {
   response.status(404).send('sorry, this route does not exist');
