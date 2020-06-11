@@ -230,7 +230,7 @@ Start time: 3:30 PM
 
 Finish time: 4:30 PM
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 Hour 10 Minutes
 
 #### Pagination
 
