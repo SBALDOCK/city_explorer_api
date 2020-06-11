@@ -188,7 +188,7 @@ Start time: 2:30 PM
 
 Finish time: 3:30 PM
 
-Actual time needed to complete: ________________
+Actual time needed to complete: 5 hours, 30 minutes
 
 #### Deploy
 
@@ -200,16 +200,5 @@ Start time: 4:45 PM
 
 Finish time: 5:45 PM
 
-Actual time needed to complete: 2 Hours, 15 Minutes
+Actual time needed to complete: 15 Minutes
 
-#### Stretch
-
-Number and name of feature: #4 - Stretch
-
-Estimate of time needed to complete: 1 Hour
-
-Start time: 4:45 PM
-
-Finish time: 5:45 PM
-
-Actual time needed to complete: 2 Hours, 15 Minutes
