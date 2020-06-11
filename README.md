@@ -242,5 +242,5 @@ Start time: 3:30 PM
 
 Finish time: 4:00 PM
 
-Actual time needed to complete:
+Actual time needed to complete: 20 Minutes
 
