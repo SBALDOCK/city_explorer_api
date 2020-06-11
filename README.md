@@ -218,7 +218,7 @@ Start time: 1:15 PM
 
 Finish time: 2:15 PM
 
-Actual time needed to complete: 
+Actual time needed to complete: 2 Hours 10 Minutes
 
 #### Restaurants
 
@@ -226,9 +226,9 @@ Number and name of feature: #2 - Restaurants
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: 2:30 PM
+Start time: 3:30 PM
 
-Finish time: 3:30 PM
+Finish time: 4:30 PM
 
 Actual time needed to complete: 
 
