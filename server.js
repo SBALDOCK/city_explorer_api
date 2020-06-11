@@ -38,7 +38,7 @@ app.get('/location', locationHandler);
 app.get('/weather', weatherHandler);
 app.get('/trails', trailHandler);
 app.get('/movies', movieHandler);
-// app.get('/restaurants', restaurantHandler);
+app.get('/yelp', restaurantHandler);
 app.use('*', handleNotFound);
 
 // constructor for location
@@ -140,7 +140,7 @@ function Movie(obj) {
   this.overview = obj.overview;
   this.average_votes = obj.average;
   this.total_votes = obj.total;
-  this.image_url = obj.image;
+  this.image_url = `https://image.tmdb.org/t/p/w500${obj.poster_path}`;
   this.popularity = obj.popularity;
   this.release_on = obj.release;
 }
@@ -162,44 +162,39 @@ function movieHandler(request, response) {
 }
 
 // Constructor for restaurant endpoint
-// function Restaurant(obj) {
-//   this.restaurant = obj.restaurant.name;
-//   this.cuisine = obj.restaurant.cuisine;
-//   this.locality = obj.restaurant.location.locality;
-// }
+function Restaurant(obj) {
+  this.name= obj.name;
+  this.image_url = obj.image_url;
+  this.price = obj.price;
+  this.rating = obj.rating;
+  this.url = obj.url
+}
 
 // // Handler for restaurant endpoint
-// function restaurantHandler(request, response) {
-// console.log('this is our restaurant route', request.query);
-// const page = request.query.page;
-// const numPerPage = 5;
-// const start = (page -1) * numPerPage;
+function restaurantHandler(request, response) {
+  const { latitude, longitude} = request.query;
+  console.log('this is our restaurant route', request.query);
+  const page = request.query.page;
+  const numPerPage = 5;
+  const start = (page -1) * numPerPage;
 
-// // const queryParams = {
-// // lat: request.query.latitude,
-// // start: start,
-// // count: numPerPage,
-// // lng: request.query.longitude
-// // }
+  const queryParams = {
+    // latitude: request.query.latitude,
+    // longitude: request.query.longitude,
+    categories: 'restaurants'
+  }
 
-// let yelpURL = `https://api.yelp.com/v3/businesses/?city=${search_query}&key=${YELP_API_KEY}`;
+  let yelpURL = `https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}`;
 
-// superagent.get(yelpURL)
-//   .set('Authorization', `Bearer ${process.env.YELP_API_KEY}`)
-//   .query(queryParams)
-//   .then(data => {
-//     console.log('data from superagent', data.body);
-//     let restaurantArray = data.body.restaurants;
-//     console.log('this is my restaurantArray', restaurantArray[0]);
-//     const finalRestaurants = restaurantArray.map(eatery => {
-//       return new Restaurant(eatery);
-//     })
-
-//    response.status(200).send(finalRestaurants);
-//   }) .catch (err) {
-// console.log('Error', err);
-// response.status(500).send('sorry, something went wrong');
-// }
+  superagent.get(yelpURL, queryParams)
+    .set({'Authorization': `Bearer ${process.env.YELP_API_KEY}`})
+    .then(resultsFromSuperAgent => {
+      console.log('data from superagent', resultsFromSuperAgent.body);
+      let restaurantArray = resultsFromSuperAgent.body.businesses.map (restaurant => {return new Restaurant(restaurant);
+      })
+      response.status(200).send(restaurantArray);
+    }) .catch (err => console.log(err));
+}
 
 // Error handler
 function handleNotFound(request, response) {
