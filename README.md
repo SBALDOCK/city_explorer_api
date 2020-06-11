@@ -160,3 +160,56 @@ Start time: 4:45 PM
 Finish time: 5:45 PM
 
 Actual time needed to complete: 2 Hours, 15 Minutes
+
+
+## Lab 8 - Wednesday, June
+
+![sql whiteboard](images/sql.jpeg)
+
+#### Database
+
+Number and name of feature: #1 - DataBase
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 1:15 PM
+
+Finish time: 2:15 PM
+
+Actual time needed to complete: 45 Minutes
+
+#### Server
+
+Number and name of feature: #2 - Server
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 2:30 PM
+
+Finish time: 3:30 PM
+
+Actual time needed to complete: ________________
+
+#### Deploy
+
+Number and name of feature: #3 - Deploy
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 4:45 PM
+
+Finish time: 5:45 PM
+
+Actual time needed to complete: 2 Hours, 15 Minutes
+
+#### Stretch
+
+Number and name of feature: #4 - Stretch
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 4:45 PM
+
+Finish time: 5:45 PM
+
+Actual time needed to complete: 2 Hours, 15 Minutes
