@@ -202,3 +202,45 @@ Finish time: 5:45 PM
 
 Actual time needed to complete: 15 Minutes
 
+
+
+## Lab  - Thursday, June 11
+
+![sql whiteboard](images/whiteboard3.jpeg)
+
+#### Movies
+
+Number and name of feature: #1 - Movies
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 1:15 PM
+
+Finish time: 2:15 PM
+
+Actual time needed to complete: 
+
+#### Restaurants
+
+Number and name of feature: #2 - Restaurants
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 2:30 PM
+
+Finish time: 3:30 PM
+
+Actual time needed to complete: 
+
+#### Pagination
+
+Number and name of feature: #3 - Pagination
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 3:30 PM
+
+Finish time: 4:00 PM
+
+Actual time needed to complete:
+
