@@ -179,6 +179,7 @@ function restaurantHandler(request, response) {
   const start = (page -1) * numPerPage;
 
   const queryParams = {
+    limit: 10,
     // latitude: request.query.latitude,
     // longitude: request.query.longitude,
     categories: 'restaurants'
